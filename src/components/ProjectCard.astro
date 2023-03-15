@@ -1,0 +1,112 @@
+---
+export interface Props {
+	projectName: string;
+	body: string;
+	hrefLive: string;
+    hrefRepo: string;
+    image: any;
+}
+
+const { hrefLive, hrefRepo, projectName, body, image } = Astro.props;
+---
+
+<div class="project-card">
+    <div>
+        <img loading="lazy" src={image} alt="">
+    </div>
+
+    <div class="card-content">
+        <div class="card-text">
+            <h3 class="text-center font-bold mb-2">{projectName}</h3>
+            <p class="text-center">{body}</p>
+        </div>
+
+        <div class="projects-btn-container">
+            <a class="btn primary-btn" href={hrefLive} target="_blank">Live Site</a>
+    
+            <a class="btn secondary-btn" href={hrefRepo} target="_blank">Github Repo</a>
+        </div>
+    </div>
+</div>
+
+<style>
+.project-card {
+    border: 2px solid var(--color-text);
+    border-radius: 5px;
+    display: grid;
+    overflow: hidden;
+}
+
+.card-text {
+    padding: 1em;
+}
+
+img {
+    border-bottom: 2px solid var(--dark);
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.btn {
+    font-weight: bold;
+    border-radius: 5px;
+    color: var(--beige);
+    color: white;
+    padding: 0.5em; 
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: var(--hover-effect);
+}
+
+.primary-btn {
+    background: var(--highlight);
+}
+
+.btn:hover {
+    color: var(--dark);
+    text-decoration: underline;
+}
+
+.primary-btn:hover {
+    background: var(--soft-highlight);
+}
+
+.secondary-btn {
+    background: var(--secondary)
+}
+
+.secondary-btn:hover {
+    background: var(--soft-secondary);
+}
+
+
+
+/* .btn:hover {
+    text-decoration: underline;
+} */
+
+.projects-btn-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    border-top: 2px solid var(--color-text);
+    padding: 1em;
+}
+
+@media (min-width: 50em) {
+    .projects-btn-container {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .projects-btn-container > * {
+        flex: 1;
+    }
+}
+</style>

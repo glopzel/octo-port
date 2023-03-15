@@ -1,0 +1,46 @@
+---
+import Media from "./Media.astro";
+import monitor from "../images/handy-joyful-monitor.png"
+---
+
+<footer class="relative">
+    <img src={monitor} loading="lazy" class="icon-drawing" alt="">
+    <section class="container">
+        <span class="font-bold">
+            FullStack Software Developer
+        </span>
+        <span class="font-bold">
+            &copy; glopzel, 2023
+        </span>
+        <Media />
+    </section>
+</footer>
+
+<style>
+    footer {
+        border-top: 2px dashed var(--color-text);
+        background: var(--diff-background);
+    }
+
+    img {
+        right: 0;
+        bottom: 115px;
+    }
+
+    section > * {
+        display: block;
+        text-align: center;
+    }
+
+    @media (min-width: 50em) {
+        footer {
+            margin-left: var(--side-nav-space);
+        }
+
+        section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between; 
+        }
+    }
+</style>

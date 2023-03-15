@@ -1,0 +1,107 @@
+---
+import Media from '../components/Media.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import Layout from '../layouts/Layout.astro';
+import bojack from "../images/bojack.png"
+import bookmarks from "../images/bookmarks.png"
+import dinesite from "../images/food.png"
+import gallery from "../images/gallery.png"
+import Form from '../components/Form.svelte';
+import Label from '../components/Label.svelte';
+import NotationHero from '../components/NotationHero.svelte';
+import browserImg from "../images/handy-browser-1.png";
+
+const projects = [
+	{name: "Bookmarksland", repoLink: "https://github.com/glopzel/bookmarksland", siteLink: "https://bookmarksland.onrender.com", src: bookmarks, content: "Landing site template for browser extension made with React." }, 
+	{name: "Art Gallery", repoLink: "https://github.com/glopzel/art-gallery", siteLink: "https://fem-art-gallery.onrender.com/", src: gallery, content: "Landing site for art gallery made only with Astro." },
+	{name: "Dine", repoLink: "https://github.com/glopzel/re-dine", siteLink: "https://redine.onrender.com", src: dinesite, content: "Site made with Astro integrating Svelte components to handle events." },
+	{name: "BoJack Horseman API", repoLink: "https://github.com/glopzel/bojack-horseman-api", siteLink: "https://bojack-horseman-api.onrender.com", src: bojack, content: "API that returns information about the Netflix series BoJack Horseman, with MongoDB, Express and React." },
+] 
+---
+
+<Layout>
+	<main class="">
+		<div id="home" class="hero-container">
+			<section class="container section-block hero">
+				<NotationHero client:load/>
+				<Media />
+			</section>
+		</div>
+
+		<section id="about">
+			<div class="container">
+				<h2 class="font-bold my-6">About Me</h2>
+
+				<p>My path has not been very linear, my first encounter with code was using Python doing data analysis for research projects. Once I graduated university as an Agronomist I thought about the many ways that technology could help have more sustainable practices. As I worked in many random ways i started learning how to code using freecodecamp's curriculum. A year or so after I entered the 100Devs Agency where I was able to get a deeper understanding of front end matters as well as getting back end experience.</p><br>
+				<p>Through these years I've gotten the opportunity to use many languages and frameworks, the ones that I've used the most are: <Label tech="JavaScript"client:load /> and <Label tech="TypeScript"client:load />, <Label tech="React"client:load /> , <Label tech="Node" client:load /> with <Label tech="Express" client:load /> , <Label tech="MongoDB" client:load /> and <Label tech="PostgreSQL" client:load />.</p>
+			</div>
+		</section>
+
+		<section id="projects" class="container section-block">
+			<h2 class="font-bold my-6">Projects</h2>
+			
+			<div class="project-grid">
+				{
+					projects.map((item, index) => {
+						return (
+							<ProjectCard projectName={item.name} hrefLive="" hrefRepo="" body={item.content} image={item.src} />
+						) 
+					})
+				}
+				<img class="browser-img icon-drawing" loading="lazy" src={browserImg} alt="">
+			</div>
+		</section>
+
+		<Form client:load/>
+	</main>
+</Layout>
+
+<style>
+
+	.hero {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+
+	.theme-switch {
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: 999;
+        width: 20px;
+        margin: 1em 2em;
+	}	
+
+	#about {
+		padding: 3em 0;
+	}
+
+	#projects {
+		display: grid;
+		grid-template-rows: auto 1fr;
+	}
+
+	.browser-img {
+		top: -70px;
+		right: -30px;
+		z-index: -1;
+	}
+
+	.project-grid {
+		display: grid;
+		gap: 2em;
+		position: relative;
+	}
+
+	@media (min-width: 50em) {
+		main {
+			margin-left: 20%;
+		}
+
+		.project-grid {
+			grid-template-columns: repeat(2, 1fr);
+			gap: 2em;
+		}
+	}
+</style>

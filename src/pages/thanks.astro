@@ -1,0 +1,50 @@
+---
+import Layout from "../layouts/Layout.astro";
+import star from "../images/handy-rating-star.png";
+---
+
+<Layout>
+    <main class="section-block">
+        <div class="container">
+            <h3 class="font-bold hero-heading">Thank you for the message!</h3>
+            <div id="icon-star" class="relative">
+                <img id="star-icon" src={star} alt="" class="icon-drawing">
+                <a href="/">Go Back To The Site</a>
+            </div>
+        </div>
+    </main>
+</Layout>
+
+<style>
+    main {
+        display: flex;
+        margin-left: 20%;
+    }
+
+    #star-icon {
+        right: -120px;
+        width: 100px;
+    }
+
+    div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    a {
+        border: 2px solid var(--color-text);
+        font-size: 1.2rem;
+        font-weight: bold;
+        padding: 0.5rem;
+        border-radius: 5px;
+        margin-top: 2em;
+        transition: var(--hover-effect);
+    }
+
+    a:hover {
+        background: var(--color-text);
+        color: var(--background-main);
+    }
+</style>

@@ -1,0 +1,156 @@
+---
+import Header from "../components/Header.svelte";
+import Bolt from "../components/ThemeToggleIcon.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>ALZ portfolio</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+	</head>
+	<body class="light-theme">
+		<Header client:load />
+
+		<button id="toggleTheme">
+			<span class="sr-only">"toggle theme"</span>
+			<Bolt />
+		</button>
+
+		<slot />
+
+		<Footer />
+	</body>
+</html>
+
+<script is:inline>
+	let btnTheme = document.querySelector('#toggleTheme');
+	let bodyOdy = document.querySelector('body');
+	let light = true;
+
+	btnTheme.addEventListener('click', () => {
+		
+		if (light) {
+			bodyOdy.classList.remove('light-theme');
+			bodyOdy.classList.add('dark-theme');
+		} else {
+			bodyOdy.classList.add('light-theme');
+			bodyOdy.classList.remove('dark-theme');
+		}
+
+		light = !light;
+	})
+</script>
+
+<style is:global>
+	:root {
+		--wintersmoke: hsl(0, 0%, 96%);
+		--dark: hsl(330, 7%, 5%);
+		--grey: hsl(45, 6%, 14%);
+		--highlight: #ff8906;
+		--secondary: #f25f4c;
+		--tertiary: #e53170;
+		--headline: #0f0e17;
+		--paragraph: #a7a9be;
+		--stroke: black;
+		--white: #fffffe;
+		--soft-highlight: hsl(32, 100%, 70%);
+		--soft-secondary: hsl(7, 91%, 74%);
+		--soft-tertiary: hsl(339, 65%, 68%);
+		--pink: hsl(346, 81%, 75%);
+		--orange: #fc7527;
+		--red: #ed213c;
+		--beige:#f9f4dc;
+		--background-main: var(--beige);
+		--color-text: #0e0c0d;
+		--section-block: 100dvh;
+		--section-block-vh: 100vh;
+		--hover-effect: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+		--side-nav-space: 20%;
+	}
+
+	* {
+		box-sizing: border-box;
+	}
+
+	html {
+		scroll-behavior: smooth;
+	}
+
+	.section-block {
+		min-height: var(--section-block-vh);
+		min-height: var(--section-block);
+	}
+
+	.container {
+		max-width: 90%;
+		margin-inline: auto;
+		padding: 2em 1em;
+	}
+
+	#toggleTheme {
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: 999;
+        width: 30px;
+        margin: 2em;
+    }
+
+	.light-theme {
+		--nav-colors: var(--secondary);
+		--diff-background: var(--beige);
+		--background-main: var(--white);
+		background: var(--white);
+		color: var(--dark);
+	}
+
+	.dark-theme {
+		--nav-colors: #ff8906;
+		--diff-background: var(--dark);
+		--background-main: var(--grey);
+		--color-text: var(--beige);
+		background: var(--grey);
+		color: var(--beige);
+	}
+
+	.icon-drawing {
+		position: absolute;
+		width: 150px;
+	}
+
+	body {
+		font-family: 'Atkinson Hyperlegible', sans-serif;
+		transition: all 250ms ease-in-out;
+	}
+
+	h1, .hero-heading {
+		font-size: clamp(2rem, 2vw + 1rem, 3rem);
+		font-weight: 800;
+		margin: 0;
+	}
+
+	h2 {
+		font-size: 1.2rem;
+		font-size: clamp(1.25rem, 2vw + 1rem, 2.2rem);
+	}
+	
+	h3 {
+		font-size: clamp(1rem, 2vw + 1rem, 1.25rem);
+	}
+
+	p {
+		font-size: 1rem;
+	}
+
+	@media (min-width: 50em) {
+		margin-left: 20%;
+	}
+</style>
