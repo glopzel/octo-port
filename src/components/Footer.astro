@@ -23,8 +23,7 @@ import monitor from "../images/handy-joyful-monitor.png"
     }
 
     img {
-        right: 0;
-        bottom: 115px;
+        visibility: hidden;
     }
 
     section > * {
@@ -35,6 +34,12 @@ import monitor from "../images/handy-joyful-monitor.png"
     @media (min-width: 50em) {
         footer {
             margin-left: var(--side-nav-space);
+        }
+
+        img {
+            visibility: visible;
+            right: 0;
+            bottom: 115px;
         }
 
         section {

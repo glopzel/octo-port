@@ -16,6 +16,7 @@
 
 <h1 class="hero-heading">
     <Annotation bind:visible bind:this={rn} type="box" padding={10}>
-        Hello, I'm <span class="hero-heading" use:annotate={{ visible: actionsVisible, color: '#ff8906', type: 'highlight' }}>Angela Lopez</span>, software developer based somewhere in Chile
+        Hello, I'm <span class="hero-heading" use:annotate={{ visible: actionsVisible, color: '#ff8906', type: 'highlight' }}>Angela</span>
+        <span class="hero-heading" use:annotate={{ visible: actionsVisible, color: '#ff8906', type: 'highlight' }}>Lopez</span>, software developer based somewhere in Chile
     </Annotation>
 </h1>
