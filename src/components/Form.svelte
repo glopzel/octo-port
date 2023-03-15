@@ -12,7 +12,7 @@
         <input type="hidden" name="_subject" value="New email from site!" />
 
         <!-- thank you page -->
-        <input type="hidden" name="_next" value="/thanks">
+        <input type="hidden" name="_next" value="https://harmonious-taffy-71a245.netlify.app/thanks">
 
         <!-- hide captcha -->
         <input type="hidden" name="_captcha" value="false">
