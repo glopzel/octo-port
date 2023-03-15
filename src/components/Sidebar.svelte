@@ -12,6 +12,7 @@
 		<a on:click={() => closeNav()} class="block nav-link" href="#about">About</a>
 		<a on:click={() => closeNav()} class="block nav-link" href="#projects">Projects</a>
 		<a on:click={() => closeNav()} class="block nav-link" href="#contact">Contact</a>
+		<a on:click={() => closeNav()} class="block nav-link" href="/cv">CV</a>
 	</nav>
 </aside>
 
