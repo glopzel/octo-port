@@ -61,6 +61,11 @@
         padding: 0.5em;
     }
 
+    textarea {
+        overflow-y: scroll;
+        resize: none;
+    }
+
     input:focus {
         border-color: var(--highlight);
     }
