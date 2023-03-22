@@ -2,7 +2,7 @@
     let email = "", message = "", name = "";
 </script>
 
-<div id="contact" class="container section-block">
+<div id="contact" class="container">
     <section>
         <h2 class="text-center font-bold">Let's connect!</h2>
  
@@ -39,6 +39,7 @@
     #contact {
         display: grid;
         align-items: center;
+        padding: 10em 0;
     }
 
     form {

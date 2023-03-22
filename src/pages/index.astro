@@ -37,7 +37,7 @@ const projects = [
 			</div>
 		</section>
 
-		<section id="projects" class="container section-block">
+		<section id="projects" class="container">
 			<h2 class="font-bold my-6">Projects</h2>
 			
 			<div class="project-grid">
@@ -80,6 +80,7 @@ const projects = [
 	#projects {
 		display: grid;
 		grid-template-rows: auto 1fr;
+		padding: 5em 0;
 	}
 
 	.browser-img {
@@ -102,6 +103,7 @@ const projects = [
 		.project-grid {
 			grid-template-columns: repeat(2, 1fr);
 			gap: 2em;
+			height: fit-content;
 		}
 	}
 </style>
