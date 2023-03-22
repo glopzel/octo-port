@@ -44,7 +44,7 @@ const projects = [
 				{
 					projects.map((item, index) => {
 						return (
-							<ProjectCard projectName={item.name} hrefLive="" hrefRepo="" body={item.content} image={item.src} />
+							<ProjectCard projectName={item.name} hrefLive={item.siteLink} hrefRepo={item.repoLink} body={item.content} image={item.src} />
 						) 
 					})
 				}
