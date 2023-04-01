@@ -1,9 +1,9 @@
 <script>
-import {annotate} from 'svelte-rough-notation';  
-export let tech;
+    import {annotate} from 'svelte-rough-notation';  
+    export let tech;
 </script>
 
-<span use:annotate={{ visible: true, type: 'highlight', color: '#FAD7A0', iterations: 2}}>
+<span use:annotate={{ visible: true, type: 'highlight', color: '#fff2a8', iterations: 2}}>
     {tech}
 </span>
 

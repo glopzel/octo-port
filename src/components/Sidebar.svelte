@@ -44,8 +44,11 @@
     }
 
 	.nav-link:hover {
-		border: 2px solid var(--nav-colors);
-		color: var(--nav-colors);
+		border: 2px solid var(--hover-color);
+		color: var(--hover-color);
+		/* color: #9D4DFF;
+		border: 2px solid #9D4DFF; */
+		/* background: #66C5FF; */
 	}
 	
 	.open {

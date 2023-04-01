@@ -81,7 +81,7 @@
     }
 
     #form-submit:hover {
-        background: var(--highlight);
+        background: var(--yellow);
         color: var(--dark);
     }
 </style>
